@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spitfire-client"
+version = "0.0.1"
+description = "Spitfire — polyglot background job queue. Placeholder; real SDK coming."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Spitfire" }]
+requires-python = ">=3.9"
+keywords = ["job-queue", "background-jobs", "spitfire", "polyglot", "durable"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: System :: Distributed Computing",
+]
+
+[project.urls]
+Homepage = "https://github.com/spitfirehq/spitfire"
+Repository = "https://github.com/spitfirehq/spitfire"
+Issues = "https://github.com/spitfirehq/spitfire/issues"
+
+[tool.setuptools.packages.find]
+include = ["spitfire_client*"]

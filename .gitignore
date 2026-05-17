@@ -1,11 +1,30 @@
 # Go build artifacts
 /bin/
-/dist/
 *.exe
 *.test
 *.out
 coverage.out
 vendor/
+
+# Node / TypeScript
+node_modules/
+dist/
+*.tgz
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+.pytest_cache/
+.venv/
+venv/
+
+# .NET
+bin/
+obj/
+*.nupkg
+*.snupkg
 
 # Data directories (WAL, snapshots)
 /data/

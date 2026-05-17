@@ -1,0 +1,26 @@
+{
+  "name": "@spitfirehq/sdk",
+  "version": "0.0.1",
+  "description": "Spitfire — polyglot background job queue. Placeholder; real SDK coming.",
+  "license": "Apache-2.0",
+  "author": "Spitfire",
+  "homepage": "https://github.com/spitfirehq/spitfire",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spitfirehq/spitfire.git",
+    "directory": "sdks/typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/spitfirehq/spitfire/issues"
+  },
+  "keywords": [
+    "job-queue",
+    "background-jobs",
+    "spitfire",
+    "polyglot",
+    "durable"
+  ],
+  "files": [
+    "README.md"
+  ]
+}

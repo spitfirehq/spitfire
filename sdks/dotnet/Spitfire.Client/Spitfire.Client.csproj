@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Spitfire.Client</RootNamespace>
+    <AssemblyName>Spitfire.Client</AssemblyName>
+
+    <PackageId>Spitfire.Client</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Spitfire</Authors>
+    <Company>Spitfire</Company>
+    <Description>Spitfire — polyglot background job queue. Placeholder; real client coming.</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/spitfirehq/spitfire</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/spitfirehq/spitfire</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>job-queue;background-jobs;spitfire;polyglot;durable</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>false</IncludeSymbols>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
