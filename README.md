@@ -1,7 +1,5 @@
 # Spitfire — Polyglot Background Job Queue
 
-> **GitHub org:** [`spitfirehq`](https://github.com/spitfirehq) (claimed)
-> **Domain:** `spitfire.sh` (planned — purchase after first milestone)
 > **Go module root:** `github.com/spitfirehq/spitfire`
 
 ## One-line pitch
@@ -83,7 +81,7 @@ Go core (single binary)
   └── Raft coordination (HA)
         │
         ▼
-Storage trait (atomic enqueue, leases, notify, history)
+Storage interface (atomic enqueue, leases, notify, history)
         │
         ▼
 File-based engine (WAL + memory index, no DB)
@@ -148,12 +146,12 @@ Single-binary deploy. No separate dashboard server. Live updates via Server-Sent
 
 ### Months 1–3 — Foundation
 
-- Storage trait paper-design (~2 weeks before any code)
+- Storage interface paper-design (~2 weeks before any code)
 - Custom WAL + memory index, single-node
 - Job state machine: enqueued → reserved → running → succeeded/failed/retrying/dead
 - Group-commit implementation
 - Crash recovery, snapshot, compaction loop
-- In-memory test backend (validates the trait)
+- In-memory test backend (validates the interface)
 
 ### Months 4–6 — Protocol + Python SDK + Dashboard
 
