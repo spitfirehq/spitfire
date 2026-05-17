@@ -235,9 +235,9 @@ Bare `spitfire` is taken on npm (abandoned), PyPI (abandoned), and crates.io (ac
 | GitHub org | `spitfirehq` | ✅ claimed |
 | Domain | `spitfire.sh` | planned — purchase after first milestone |
 | Go module | `github.com/spitfirehq/spitfire` | follows from org |
-| npm SDK | `@spitfirehq/sdk` (scope `@spitfirehq` free) | reserve before publishing |
-| PyPI SDK | `spitfire-client` (free) | reserve at first publish |
-| NuGet | `Spitfire` (bare is free) + `Spitfire.Client` | reserve before publishing |
+| npm SDK | `@spitfirehq/sdk` (scope `@spitfirehq` free) | ✅ claimed |
+| PyPI SDK | `spitfire-client` (free) | org request made, waiting for confirmation |
+| NuGet | `Spitfire` (bare is free) + `Spitfire.Client` | ✅ claimed |
 
 ## Immediate next decisions
 
