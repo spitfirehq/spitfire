@@ -11,7 +11,7 @@ Hangfire's developer experience, in Python, TypeScript, and .NET. One binary, on
 A durable background job queue and scheduler that:
 
 - Ships as a **single binary with a single data directory** — no Postgres, Redis, or SQL Server required
-- Covers multiple language ecosystems (v1: Python, TypeScript, .NET; v1.1+: Go; v1.2+: C++)
+- Covers multiple language ecosystems (v1: Python, TypeScript, .NET, Go)
 - Offers Hangfire-class dashboard polish and developer ergonomics
 - Sets up a future expansion into low-latency / financial domains via the C++ SDK
 
@@ -142,48 +142,6 @@ Jobs declared in `.proto` files. Codegen produces idiomatic types in each SDK. P
 
 Single-binary deploy. No separate dashboard server. Live updates via Server-Sent Events (well-trodden territory).
 
-## Roadmap (12 months, ~15 hrs/week)
-
-### Months 1–3 — Foundation
-
-- Storage interface paper-design (~2 weeks before any code)
-- Custom WAL + memory index, single-node
-- Job state machine: enqueued → reserved → running → succeeded/failed/retrying/dead
-- Group-commit implementation
-- Crash recovery, snapshot, compaction loop
-- In-memory test backend (validates the interface)
-
-### Months 4–6 — Protocol + Python SDK + Dashboard
-
-- QUIC server via `quic-go`
-- Custom binary application protocol
-- Schema codegen pipeline (proto3 → Python types)
-- Python SDK: `@job` decorator, sync + async APIs
-- Dashboard SPA + SSE telemetry
-- First end-to-end use case running
-
-### Months 7–9 — TypeScript SDK + Raft + Benchmarks
-
-- TypeScript SDK (Node + Bun)
-- `hashicorp/raft` integration, multi-node clustering
-- Jepsen-style fault injection testing
-- Cron + delayed scheduling
-- First public benchmarks vs Hatchet/Sidekiq/BullMQ (honest methodology, published)
-
-### Months 10–12 — .NET SDK + Polish + Launch
-
-- .NET SDK with `[Job]` attribute + DI
-- OpenTelemetry tracing across job chains
-- Production hardening, deployment guides, code examples
-- Docs site
-- Launch post
-
-### Post-v1
-
-- Months 13–15: Go SDK + Postgres backend adapter (v1.1)
-- Months 16–18: Redis backend (v1.2)
-- Months 18–20: C++ SDK (v1.2, fintech push)
-
 ## Tech stack
 
 - **Core language:** Go (latest stable), goroutines + channels for concurrency
@@ -223,7 +181,7 @@ Monorepo:
 ## Constraints + context
 
 - **Solo developer**, 10–20 hrs/week, 12-month v1 target
-- **Background:** senior fullstack (TypeScript, .NET, Python, Azure, AI integration). Go is a deliberate learning goal but a much gentler ramp than Rust — depth comes from the systems work (WAL, Raft, QUIC, wire protocol), not from fighting the language.
+- **Background:** senior fullstack (TypeScript, .NET, Python, Azure, AI integration). Go is a deliberate learning goal but a much gentler ramp — depth comes from the systems work (WAL, Raft, QUIC, wire protocol), not from fighting the language.
 - **Supporting tech being lifted, not deeply learned:** DevOps/IaC, security/cryptography, mobile, data engineering. These appear in the project but aren't the core focus.
 
 ## Naming + identity (locked)
@@ -241,8 +199,7 @@ Bare `spitfire` is taken on npm (abandoned), PyPI (abandoned), and crates.io (ac
 
 ## Immediate next decisions
 
-1. **Go SDK position** — with the core in Go, the Go SDK is nearly free. Consider promoting it from v1.1 into v1 (so launch covers Python, TypeScript, .NET, Go).
-2. **Storage interface (Go)** — paper-design before any Go code is written. Must support: atomic enqueue with idempotency, claim-next-ready-from-queue with visibility timeout, lease renewal, terminal state writes, history append, range scans for dashboard, pub/sub-style notify
-3. **WAL binary format + record layout** — define record types, framing, magic bytes, version field, checksum strategy
-4. **Crash-recovery algorithm** — corner cases: torn writes, partial snapshots, version mismatches, WAL/snapshot ordering
-5. **Repo bootstrap + CI** — Go module layout under `github.com/spitfirehq/spitfire`, `golangci-lint`, test workflow
+1. **Storage interface (Go)** — paper-design before any Go code is written. Must support: atomic enqueue with idempotency, claim-next-ready-from-queue with visibility timeout, lease renewal, terminal state writes, history append, range scans for dashboard, pub/sub-style notify
+2. **WAL binary format + record layout** — define record types, framing, magic bytes, version field, checksum strategy
+3. **Crash-recovery algorithm** — corner cases: torn writes, partial snapshots, version mismatches, WAL/snapshot ordering
+4. **Repo bootstrap + CI** — Go module layout under `github.com/spitfirehq/spitfire`, `golangci-lint`, test workflow
